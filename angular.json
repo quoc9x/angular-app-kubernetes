@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "angular-app-kubernetes"
+  "defaultProject": "angular-app-kubernetes",
+  "cli": {
+    "analytics": false
+  }
 }
