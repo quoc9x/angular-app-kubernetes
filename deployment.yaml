@@ -15,7 +15,7 @@ spec:
       containers: 
       - name: angular
         image: cuongquocvn/angular-app:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports: 
         - containerPort: 80 
 --- 
