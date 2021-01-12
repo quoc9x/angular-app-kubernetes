@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: angular
-        image: cuongquocvn/angular-app:latest
+        image: hub.binhanh.vn:5000/angular-app:latest
         imagePullPolicy: IfNotPresent
         ports: 
         - containerPort: 80 
