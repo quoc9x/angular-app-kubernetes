@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: commonservicesync
-        image: hub.binhanh.vn:5000/gpsv3_commonservicesync:latest
+        image: hub.binhanh.vn:5000/gpsv3_commonservicesync
 #        imagePullPolicy: Always
         ports: 
         - containerPort: 80 
