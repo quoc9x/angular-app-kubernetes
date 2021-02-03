@@ -1,20 +1,20 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
 kind: Deployment 
 metadata: 
-  name: routeservice-deployment 
+  name: commonservice-deployment 
 spec: 
   selector: 
     matchLabels: 
-      app: routeservice 
+      app: commonservice
   replicas: 2 # tells deployment to run 2 pods matching the template 
   template: 
     metadata: 
       labels: 
-        app: routeservice
+        app: commonservice
     spec: 
       containers: 
-      - name: routeservice
-        image: hub.binhanh.vn:5000/gpsv3_routeservice:latest
+      - name: commonservice
+        image: hub.binhanh.vn:5000/gpsv3_commonservice:latest
 #        imagePullPolicy: Always
         ports: 
         - containerPort: 80 
@@ -23,13 +23,13 @@ spec:
 kind: Service 
 apiVersion: v1
 metadata: 
-  name: route-service 
+  name: common-service
 spec: 
   selector: 
-    app: routeservice 
+    app: commonservice
   ports: 
   - protocol: TCP 
     port: 80 
     targetPort: 80 
-    nodePort: 31013
+    nodePort: 32202
   type: NodePort 
