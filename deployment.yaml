@@ -14,8 +14,8 @@ spec:
     spec: 
       containers: 
       - name: angular
-        image: hub.binhanh.vn:5000/angular-app:v1
-        imagePullPolicy: Always
+        image: hub.binhanh.vn:5000/angular-app:latest
+#        imagePullPolicy: Always
         ports: 
         - containerPort: 80 
 --- 
@@ -31,5 +31,5 @@ spec:
   - protocol: TCP 
     port: 80 
     targetPort: 80 
-    nodePort: 31000
+    nodePort: 30001
   type: NodePort 
