@@ -1,0 +1,38 @@
+#======================Create Deployment=====================
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: democicdwithk8s-deployment 
+spec: 
+  selector: 
+    matchLabels: 
+      app: democicdwithk8s
+  replicas: 2 # Number of instance
+  template: 
+    metadata: 
+      labels: 
+        app: democicdwithk8s
+    spec: 
+      containers: 
+      - name: democicdwithk8s
+        image: hub.binhanh.vn:5000/democicdwithk8s:latest
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: 80 # Port of container
+--- 
+#======================Define Service=====================
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  
+kind: Service 
+apiVersion: v1
+metadata: 
+  name: demo-cicd-with-k8s-service
+spec: 
+  selector: 
+    app: democicdwithk8s
+  ports: 
+  - protocol: TCP 
+    port: 80        # Port of container
+    targetPort: 80  # Port of service (IP of Service)
+    nodePort: 32600 # Port mapping to host (IP of host, default: 30000-32767)
+  type: NodePort    # ClusterIP, NodePort, LoadBalancer or ExternalName
